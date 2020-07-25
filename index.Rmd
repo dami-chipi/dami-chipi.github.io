@@ -6,7 +6,6 @@ output:
     vertical_layout: fill
     language: 'es-es'
     social: ["twitter","facebook","menu"]
-    echo: FALSE
 ---
 
 ```{r setup, include=FALSE}
@@ -17,13 +16,13 @@ library(leaflet)
 library(DT)
 library(dplyr)
 ```
-Mapa
-==========================================================
+
+
 -----------------------------------------------------------------------
 
 ### Mapa Interactivo
 
-```{r}
+```{r echo=FALSE}
 ub_argentina<-"C:/Users/damia/Documents/my web project/flex_dashboard project/flex_dashboard project/gadm36_ARG_2_sp.rds"
 argentina<-readRDS(ub_argentina)
 salta<-argentina[argentina$NAME_1=="Salta",]
@@ -49,15 +48,15 @@ leaflet(salta, options =
 
 
 Data table
-===========================================
-```{r}
+--------------------------------------------------------
+```{r echo=FALSE}
 contagios<-read.csv2('C:/Users/damia/Documents/my web project/flex_dashboard project/flex_dashboard project/contagios covid salta.csv',header = T)
 colnames(contagios)<-c("Departamento","Casos Nuevos","Casos Acumulados")
 datatable(contagios,class = 'cell-border')
 ```
 
 Fuente
-================================================
-```{r}
+-------------------------------------------------------
+```{r echo=FALSE}
 cat('Fuente: Ministerio de Salud Pública de Salta',as.character(Sys.Date()),'Reporte diario de COVID-19 http://www.salta.gov.ar/prensa/noticias/reporte-diario-de-covid-19/71307',"\n","\n","Creador: Damián Gonzo")
 ```

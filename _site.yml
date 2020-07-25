@@ -1,9 +1,9 @@
-name: "my-website"
+name: "COVID-19 Salta"
 output_dir: "."
 navbar:
-  title: "My Website"
+  title: "COVID-19 Salta"
   left:
-    - text: "Home"
+    - text: "Mapa interactivo"
       href: index.html
     - text: "About"
       href: about.html
