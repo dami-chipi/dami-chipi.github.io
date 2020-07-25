@@ -46,17 +46,3 @@ leaflet(salta, options =
     opacity = 1 )
 ```
 
-
-Data table
---------------------------------------------------------
-```{r echo=FALSE}
-contagios<-read.csv2('C:/Users/damia/Documents/my web project/flex_dashboard project/flex_dashboard project/contagios covid salta.csv',header = T)
-colnames(contagios)<-c("Departamento","Casos Nuevos","Casos Acumulados")
-datatable(contagios,class = 'cell-border')
-```
-
-Fuente
--------------------------------------------------------
-```{r echo=FALSE}
-cat('Fuente: Ministerio de Salud Pública de Salta',as.character(Sys.Date()),'Reporte diario de COVID-19 http://www.salta.gov.ar/prensa/noticias/reporte-diario-de-covid-19/71307',"\n","\n","Creador: Damián Gonzo")
-```
