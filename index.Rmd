@@ -1,11 +1,6 @@
 ---
 title: "Mapa interactivo"
-output: 
-  flexdashboard::flex_dashboard:
-    orientation: columns
-    vertical_layout: fill
-    language: 'es-es'
-    social: ["twitter","facebook","menu"]
+
 ---
 
 ```{r setup, include=FALSE}
@@ -16,9 +11,6 @@ library(leaflet)
 library(DT)
 library(dplyr)
 ```
-
-
------------------------------------------------------------------------
 
 ### Mapa Interactivo
 
