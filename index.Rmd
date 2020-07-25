@@ -1,7 +1,63 @@
 ---
-title: "My Website"
+title: "Mapa interactivo"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
+    language: 'es-es'
+    social: ["twitter","facebook","menu"]
+    echo: FALSE
 ---
 
-Hello, Website!
+```{r setup, include=FALSE}
+library(flexdashboard)
+library(sp)
+library(RColorBrewer)
+library(leaflet)
+library(DT)
+library(dplyr)
+```
+Mapa
+==========================================================
+-----------------------------------------------------------------------
 
-## PUTO EL QUE LEE
+### Mapa Interactivo
+
+```{r}
+ub_argentina<-"C:/Users/damia/Documents/my web project/flex_dashboard project/flex_dashboard project/gadm36_ARG_2_sp.rds"
+argentina<-readRDS(ub_argentina)
+salta<-argentina[argentina$NAME_1=="Salta",]
+contagios<-read.csv2('C:/Users/damia/Documents/my web project/flex_dashboard project/flex_dashboard project/contagios covid salta.csv',header = T)[1:23,3]
+salta@data<-data.frame(contagios)
+#spplot(salta,col.regions=hcl.colors(47,palette = 'harmonic',rev = T))
+x<-colorNumeric('Reds',NULL)
+leaflet(salta, options =
+               leafletOptions(attributionControl = FALSE, minzoom=1.5)) %>%
+  addPolygons(
+    label=~salta$contagios,
+    weight=1,color='#333333', opacity=1,
+    fillColor = ~x(contagios), fillOpacity = 1,
+    highlightOptions = highlightOptions(
+      color='#000000', weight = 2,
+      bringToFront = TRUE, sendToBack = TRUE)
+    )%>%
+  addLegend(
+    "topright", pal =x, values = ~contagios,
+    title = c('casos de Covid-19<br/>provincia de Salta'),
+    opacity = 1 )
+```
+
+
+Data table
+===========================================
+```{r}
+contagios<-read.csv2('C:/Users/damia/Documents/my web project/flex_dashboard project/flex_dashboard project/contagios covid salta.csv',header = T)
+colnames(contagios)<-c("Departamento","Casos Nuevos","Casos Acumulados")
+datatable(contagios,class = 'cell-border')
+```
+
+Fuente
+================================================
+```{r}
+cat('Fuente: Ministerio de Salud Pública de Salta',as.character(Sys.Date()),'Reporte diario de COVID-19 http://www.salta.gov.ar/prensa/noticias/reporte-diario-de-covid-19/71307',"\n","\n","Creador: Damián Gonzo")
+```
