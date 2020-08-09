@@ -19,7 +19,7 @@ ub_argentina<-"gadm36_ARG_2_sp.rds"
 argentina<-readRDS(ub_argentina)
 salta<-argentina[argentina$NAME_1=="Salta",]
 #contagios<-read.csv2('contagios covid salta.csv',header = T)[1:23,3]
-salta@data<-data.frame(Departamentos=c('Anta','Cachi','Cafayate','Capital','Cerrillos','Chicoana','Gral. Guemes','Gral. San Martín','Guachipas','Iruya','La Caldera','La Candelaria','La Poma','La Viña','Los Andes','Metan','Molinos','Oran','Rivadavia','Rosario de la Frontera','Rosario de Lerma','San Carlos','Santa Victoria'),contagios=c(2,0,2,108,8,3,19,111,0,2,9,0,0,4,8,2,0,68,2,0,5,0,1))
+salta@data<-data.frame(Departamentos=c('Anta','Cachi','Cafayate','Capital','Cerrillos','Chicoana','Gral. Guemes','Gral. San Martín','Guachipas','Iruya','La Caldera','La Candelaria','La Poma','La Viña','Los Andes','Metan','Molinos','Oran','Rivadavia','Rosario de la Frontera','Rosario de Lerma','San Carlos','Santa Victoria'),contagios=c(2,0,2,128,8,3,27,174,0,2,12,0,0,4,8,2,0,100,2,0,6,0,1))
 #spplot(salta,col.regions=hcl.colors(47,palette = 'harmonic',rev = T))
 x<-colorNumeric('Reds',NULL)
 leaflet(salta, options =
@@ -42,7 +42,7 @@ leaflet(salta, options =
 
 ```{r echo=FALSE}
 #contagios<-read.csv2('contagios covid salta.csv',header = T)
-contagios<-data.frame(Departamentos=c('Anta','Cachi','Cafayate','Capital','Cerrillos','Chicoana','Gral. Guemes','Gral. San Martín','Guachipas','Iruya','La Caldera','La Candelaria','La Poma','La Viña','Los Andes','Metan','Molinos','Oran','Rivadavia','Rosario de la Frontera','Rosario de Lerma','San Carlos','Santa Victoria','TOTAL'),Casos = c(2,0,2,108,8,3,19,111,0,2,9,0,0,4,8,2,0,68,2,0,5,0,1,354))
+contagios<-data.frame(Departamentos=c('Anta','Cachi','Cafayate','Capital','Cerrillos','Chicoana','Gral. Guemes','Gral. San Martín','Guachipas','Iruya','La Caldera','La Candelaria','La Poma','La Viña','Los Andes','Metan','Molinos','Oran','Rivadavia','Rosario de la Frontera','Rosario de Lerma','San Carlos','Santa Victoria','TOTAL'),Casos = c(2,0,2,128,8,3,27,174,0,2,12,0,0,4,8,2,0,100,2,0,6,0,1,481))
 colnames(contagios)<-c("Departamento","Casos Acumulados")
 datatable(contagios,class = 'cell-border')
 ```
