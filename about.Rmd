@@ -4,4 +4,4 @@ language: "es-es"
 ---
 
 Creado por: Damián Gonzo <br/>
-Fuente: http://www.salta.gov.ar/prensa/noticias/reporte-diario-de-covid-19/71869
+Fuente: http://www.salta.gov.ar/prensa/noticias/reporte-diario-de-covid-19/72023
