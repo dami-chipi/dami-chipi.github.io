@@ -5,3 +5,6 @@ language: "es-es"
 
 Creado por: Damián Gonzo <br/>
 Fuente: http://www.salta.gov.ar/prensa/noticias/reporte-diario-de-covid-19/72023
+¡ATENCIÓN!: Esta página web fue creada solo con fines autopedagógicos. la informacion contenida puede estar desactualizada y/o no ser correcta. 
+
+¡GRACIAS POR SU VISITA¡
